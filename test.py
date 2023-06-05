@@ -4,6 +4,13 @@ print(4)
 print('test')
 
 
+
+def method_a(argument):
+    # Perform some computation
+    result = argument + " eden test"
+    return result
+
+
 # # Set up your API key
 # openai.api_key = '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'
 #
