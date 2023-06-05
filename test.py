@@ -8,6 +8,7 @@ print('test')
 def method_a(argument):
     # Perform some computation
     result = argument + " eden test"
+    print(result)
     return result
 
 
