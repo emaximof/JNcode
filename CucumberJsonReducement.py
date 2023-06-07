@@ -1,4 +1,4 @@
-x = open('/Users/sgozansky/Downloads/cucumberWithFailed.json', 'r')
+import json
  
 def remove_fields(json_obj, field_name):
     if isinstance(json_obj, dict):
@@ -24,23 +24,35 @@ def remove_elemts(obj):
         if element['type'] == "scenario":
             new_elements.append(element)
     obj['elements'] = new_elements
-            
-import json
-json_obj = json.load(x)
-remove_fields(json_obj, 'data')
-remove_fields(json_obj, 'steps')
-remove_fields(json_obj, 'match')
-remove_fields(json_obj, 'output')
-#remove_elemts(json_obj)
 
 
+def reduce_json_structure(json_path):
 
-print(json_obj["name"])
-print(json_obj["description"])
-print(json_obj["id"])
-print(json_obj["uri"])
-elemnts = json_obj['elements']
-for element in elemnts:
-    print(json.dumps(element))
-    print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n')
-    
+    # open file
+    cucumber_json = open(json_path, 'r')
+
+    # remove fields
+    json_obj = json.load(cucumber_json)
+    remove_fields(json_obj, 'data')
+    remove_fields(json_obj, 'steps')
+    remove_fields(json_obj, 'match')
+    remove_fields(json_obj, 'output')
+    #remove_elemts(json_obj)
+
+    # print results ( delete later)
+    print(json_obj["name"])
+    print(json_obj["description"])
+    print(json_obj["id"])
+    print(json_obj["uri"])
+    elemnts = json_obj['elements']
+    for element in elemnts:
+        print(json.dumps(element))
+        print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n')
+
+
+    return json_obj
+
+#
+# json_path = '/Users/emaximof/Desktop/cucumberWithFailed.json'
+#
+# json_obj = reduce_json_structure(json_path)
