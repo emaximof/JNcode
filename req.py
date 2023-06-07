@@ -4,8 +4,10 @@ import json
 # Set up the API endpoint URL
 api_url = 'https://api.openai.com/v1/chat/completions'
 
+import os
 # Set your OpenAI API key
-api_key = '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'
+#export OPENAI_API_KEY=<apki key>
+api_key = os.environ.get('OPENAI_API_KEY')
 
 # Set the prompt for the conversation
 prompt = 'You: Hello\nAI:'

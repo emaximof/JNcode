@@ -29,11 +29,18 @@ import json
 json_obj = json.load(x)
 remove_fields(json_obj, 'data')
 remove_fields(json_obj, 'steps')
-remove_fields(json_obj, 'duration')
 remove_fields(json_obj, 'match')
 remove_fields(json_obj, 'output')
-remove_fields(json_obj, 'after')
-remove_fields(json_obj, 'error_message')
-remove_fields(json_obj, 'embeddings')
-remove_elemts(json_obj)
-print(json.dumps(json_obj))
+#remove_elemts(json_obj)
+
+
+
+print(json_obj["name"])
+print(json_obj["description"])
+print(json_obj["id"])
+print(json_obj["uri"])
+elemnts = json_obj['elements']
+for element in elemnts:
+    print(json.dumps(element))
+    print('\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n')
+    
