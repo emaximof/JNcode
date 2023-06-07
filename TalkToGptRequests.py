@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 import CucumberJsonReducement
 
 
@@ -53,6 +54,20 @@ def create_message_structure(json_path, api_key):
     # Return the response
     print(response)
     return response
+
+
+
+
+#create_message_structure('/Users/emaximof/Desktop/cucumberWithFailed.json', "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")
+
+if __name__ == '__main__':
+  if (len(sys.argv) != 2):
+      print("usage: pass two arguments cucamber.json file path, openai apikey")
+  json_path = sys.argv[1]
+  apikey = sys.argv[2]
+  print("calling chatgpt")
+  res = create_message_structure(json_path, apikey)
+  print(res)
 
 
 
